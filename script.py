@@ -1,4 +1,14 @@
 import requests
+import pyfiglet
+  
+result = pyfiglet.figlet_format(" S N E T ", font = "banner3-D" )
+print(result)
+
+def super_http_banner(name):
+    banner = pyfiglet.figlet_format(" S U P E R   H T T P ", font="banner3-D")
+    return f"{('Author: ' + name)}\n"
+
+print(super_http_banner('Tech con Agust'))
 
 BASE_URL = 'http://localhost:8000/'
 
