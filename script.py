@@ -1,49 +1,43 @@
 import requests
 
-usr_req = input('''
-                Select the http method 
-                # 1 - GET
-                # 2 - POST 
-                # 3 - PUT / {id}
-                # 4 - DELETE / {id}
-                = ''')
-base_url = input('''
-            
-            Select base URL:
-            # 1 - http:/127.0.0.1:8000/
-            # 2 - http:localhost:3500/
-            = ''')
+BASE_URL = 'http://localhost:8000/'
 
-miss_url = input('Set the missing param: ')
+def send_request(method, endpoint, data=None):
+    url = BASE_URL + endpoint
+    try:
+        response = getattr(requests, method.lower())(url, json=data)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.HTTPError as errh:
+        raise Exception(f"An HTTP Error occurred: {errh}")
+    except requests.exceptions.ConnectionError as errc:
+        raise Exception(f"An Error Connecting to the API occurred: {errc}")
+    except requests.exceptions.Timeout as errt:
+        raise Exception(f"A Timeout Error occurred: {errt}")
+    except requests.exceptions.RequestException as err:
+        raise Exception(f"An Unknown Error occurred: {err}")
 
-if base_url == '1':
-    url = 'http://127.0.0.1:8000/' + miss_url + '/'
-elif base_url == '2':
-    url = 'http://localhost:3500/' + miss_url + '/'
+if __name__ == '__main__':
+    method = input('Select HTTP method (GET, POST, PUT, DELETE): ').upper()
+    endpoint = input('Enter endpoint: ')
 
+    if method in ['POST', 'PUT']:
+        data = {}
+        while True:
+            key = input('Enter data key (leave empty to finish): ')
+            if not key:
+                break
+            value = input(f'Enter value for "{key}": ')
+            data[key] = value
+    else:
+        data = None
 
-if usr_req == '1':
-    # url = input('set url: ')
-    r = requests.get(url)
-    print(r.json()) 
-elif usr_req == '2':
-    # url = input('set url: ')
-    key = input('key: ')
-    value = input('value: ')
-    r = requests.post(url, data={key: value})
-    print(r.json()) 
-elif usr_req == '3':
-    # url = input('set url: ')
-    key = input('key: ')
-    value = input('value: ')
-    r = requests.put(url, data={key: value})
-    print(r.json()) 
-elif usr_req == '4':
-    # url = input('set url: ')
-    r = requests.delete(url)
-    print(r) 
-else:
-    print('Dont know! :(')
-
-
-
+    try:
+        response = send_request(method, endpoint, data)
+        if method == 'DELETE':
+            id_ = response.get('id')
+            print(f'Deleted object with ID: {id_}')
+        else:
+            print(response)
+    except Exception as e:
+        print(e)
