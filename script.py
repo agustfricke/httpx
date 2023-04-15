@@ -12,10 +12,16 @@ print(super_http_banner('Tech con Agust'))
 
 BASE_URL = 'http://localhost:8000/'
 
-def send_request(method, endpoint, data=None):
+def send_request(method, endpoint, data=None, jwt_token=None):
     url = BASE_URL + endpoint
+
+    headers = {}
+
+    if jwt_token:
+        headers['Authorization'] = f'Bearer {jwt_token}'
+
     try:
-        response = getattr(requests, method.lower())(url, json=data)
+        response = getattr(requests, method.lower())(url, json=data, headers=headers)
         if response.content:  # check if response is not empty
             response.raise_for_status()
             return response.json()
@@ -34,7 +40,9 @@ def send_request(method, endpoint, data=None):
     except requests.exceptions.RequestException as err:
         print(f"An Unknown Error occurred: {err}")
 
+
 if __name__ == '__main__':
+    jwt_token = input('Enter JWT token: ')
     method = input('Select HTTP method (GET, POST, PUT, DELETE): ').upper()
     endpoint = input('Enter endpoint: ')
 
@@ -49,6 +57,9 @@ if __name__ == '__main__':
     else:
         data = None
 
-    response = send_request(method, endpoint, data)
+    response = send_request(method, endpoint, data, jwt_token)
     if response:
         print(response)
+
+
+
