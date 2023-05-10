@@ -2,8 +2,9 @@
 
 ⚡  Basic CLI application to test your http requests made with love and python 
 
-### Available methods
+### Features
 
+- :satellite: JWT Header
 - :satellite: GET 
 - :satellite: POST 
 - :satellite: PUT 
