@@ -30,6 +30,11 @@ func main() {
     }
     }
 
+
+    var token string
+    fmt.Print("Enter your token:")
+    fmt.Scanf("%s", &token)
+
     var method string
     fmt.Print("Enter Method: POST(1) GET(2) PUT(3) DELETE(4):")
     fmt.Scanf("%v\n", &method)
@@ -98,6 +103,7 @@ func main() {
 
         // Establecer el encabezado de tipo de contenido
         req.Header.Set("Content-Type", "application/json")
+        req.Header.Set("Authorization", "Bearer "+ token)
 
         // Realizar la solicitud PUT
         client := &http.Client{}
@@ -120,12 +126,32 @@ func main() {
         fmt.Println(string(respBody))
       }
     } else if method == "2" {
-      resp, err := http.Get(url)
+      req, err := http.NewRequest(http.MethodGet, url, nil)
       if err != nil {
-        fmt.Println("Error:", err)
+        fmt.Println("Error al crear la solicitud GET:", err)
+        return
+      }
+
+      // Establecer el encabezado de autorización con el token JWT
+        // var token string
+        // fmt.Print("Enter your token:")
+        // fmt.Scanf("%s", &token)
+        req.Header.Set("Authorization", "Bearer "+ token)
+
+      // Realizar la solicitud GET
+      client := &http.Client{}
+      resp, err := client.Do(req)
+      if err != nil {
+        fmt.Println("Error al realizar la solicitud GET:", err)
         return
       }
       defer resp.Body.Close()
+      // resp, err := http.Get(url)
+      // if err != nil {
+      //   fmt.Println("Error:", err)
+      //   return
+      // }
+      // defer resp.Body.Close()
 
       // Leer el cuerpo de la respuesta
       body, err := ioutil.ReadAll(resp.Body)
@@ -145,6 +171,7 @@ func main() {
       fmt.Scanf("%v\n", &param)
       new_url := url + param
       req, err := http.NewRequest(http.MethodDelete, new_url, nil)
+      req.Header.Set("Authorization", "Bearer "+ token)
       if err != nil {
         fmt.Println("Error al crear la solicitud DELETE:", err)
         return
