@@ -1,4 +1,4 @@
-# SNET-Client-API
+# snet-client-api
 
 ⚡ Lightweight and blazingly fast client API application to test your backend requests... Developed with love and Go!
 
@@ -14,8 +14,7 @@
 - git clone https://github.com/agustfricke/snet-client-api.git
 - cd snet-client-api
 - sudo mv main /usr/local
-- open ~/.bashrc or ~/.zshrc 
-- export PATH=$PATH:/usr/local/main
+- put this in your ~/.bashrc or ~/.zshrc: export PATH=$PATH:/usr/local/main
 - reboot shell
 
 ## Enjoy and give it a star ⭐
