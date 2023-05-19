@@ -10,7 +10,8 @@ def super_http_banner(name):
 
 print(super_http_banner('Tech con Agust'))
 
-BASE_URL = 'http://localhost:8000/'
+# BASE_URL = 'http://localhost:8000/'
+BASE_URL = 'https://jsonplaceholder.typicode.com/todos/'
 
 def send_request(method, endpoint, data=None, jwt_token=None):
     url = BASE_URL + endpoint
