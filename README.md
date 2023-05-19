@@ -14,7 +14,8 @@
 - git clone https://github.com/agustfricke/snet-client-api.git
 - cd snet-client-api
 - sudo mv main /usr/local
-- put this in your ~/.bashrc or ~/.zshrc: export PATH=$PATH:/usr/local/main
+- put this in your ~/.bashrc or ~/.zshrc: export PATH=$PATH:/usr/local/snet
 - reboot shell
+- $snet
 
 ## Enjoy and give it a star ⭐
