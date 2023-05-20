@@ -7,7 +7,7 @@ import (
 
 func Delete(url string, token string) {
       var param string
-      fmt.Print("Enter the ID of the record to update:")
+  fmt.Print("URL: ")
       fmt.Scanf("%v\n", &param)
       new_url := url + param
 

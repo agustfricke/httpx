@@ -10,6 +10,11 @@ import (
 )
 
 func Post(url string, token string, jsonData []byte) {
+  var param string
+  fmt.Print("URL: ")
+  fmt.Scanf("%v\n", &param)
+  new_url := url + param + "/"
+
   var sendFile string
   fmt.Print("Do you want to send a file? (y/n): ")
   fmt.Scanf("%s\n", &sendFile)
@@ -23,7 +28,7 @@ func Post(url string, token string, jsonData []byte) {
     File(url, jsonData, filePath)
 
   } else {
-    req, err := http.NewRequest(http.MethodPost, url, bytes.NewBuffer(jsonData))
+    req, err := http.NewRequest(http.MethodPost, new_url, bytes.NewBuffer(jsonData))
     if err != nil {
       fmt.Println("Error al crear la solicitud POST:", err)
       return

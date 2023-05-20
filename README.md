@@ -13,9 +13,8 @@
 ### install and use in linux:
 - git clone https://github.com/agustfricke/snet-client-api.git
 - cd snet-client-api
-- sudo mv main /usr/local/bin/snet
-- put this in your ~/.bashrc or ~/.zshrc: export PATH=$PATH:/usr/local/snet
+- sudo mv main /usr/local/bin/sn
 - reboot shell
-- $snet
+- $sn
 
 ## Enjoy and give it a star ⭐

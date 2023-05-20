@@ -11,7 +11,7 @@ import (
 func Put(url string, token string, jsonData []byte) {
 
   var param string
-  fmt.Print("Enter the ID of the record to update:")
+  fmt.Print("URL: ")
   fmt.Scanf("%v\n", &param)
   new_url := url + param + "/"
 

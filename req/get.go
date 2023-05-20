@@ -8,7 +8,12 @@ import (
 )
 
 func Get(url string, token string) {
-  req, err := http.NewRequest(http.MethodGet, url, nil)
+  var param string
+  fmt.Print("URL: ")
+  fmt.Scanf("%v\n", &param)
+  new_url := url + param + "/"
+
+  req, err := http.NewRequest(http.MethodGet, new_url, nil)
   if err != nil {
     fmt.Println("Error al crear la solicitud GET:", err)
     return
