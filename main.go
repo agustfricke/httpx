@@ -11,7 +11,6 @@ import (
   "github.com/agustfricke/snet-client-api/req"
 )
 
-
 func main() {
 
   cli.Cli()
@@ -27,8 +26,10 @@ func main() {
       fmt.Scanf("%v\n", &url)
     }
 
-    fmt.Print("Enter your token:")
-    fmt.Scanf("%s", &token)
+    if (token == "") {
+      fmt.Print("Enter your token:")
+      fmt.Scanf("%s", &token)
+    }
 
     var method string
     fmt.Print("Enter Method: POST(1) GET(2) PUT(3) DELETE(4):")

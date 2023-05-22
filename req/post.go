@@ -13,7 +13,7 @@ func Post(url string, token string, jsonData []byte) {
   var param string
   fmt.Print("URL: ")
   fmt.Scanf("%v\n", &param)
-  new_url := url + param + "/"
+  new_url := url + param 
 
   var sendFile string
   fmt.Print("Do you want to send a file? (y/n): ")

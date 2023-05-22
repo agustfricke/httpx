@@ -11,7 +11,7 @@ func Get(url string, token string) {
   var param string
   fmt.Print("URL: ")
   fmt.Scanf("%v\n", &param)
-  new_url := url + param + "/"
+  new_url := url + param 
 
   req, err := http.NewRequest(http.MethodGet, new_url, nil)
   if err != nil {
