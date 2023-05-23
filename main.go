@@ -29,6 +29,7 @@ func main() {
     if (token == "") {
       fmt.Print("Enter your token:")
       fmt.Scanf("%s", &token)
+      token = strings.TrimRight(token, "%")
     }
 
     var method string

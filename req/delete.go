@@ -30,6 +30,6 @@ func Delete(url string, token string) {
       if resp.StatusCode == http.StatusOK {
         fmt.Println("La solicitud DELETE fue exitosa.")
       } else {
-        fmt.Println("La solicitud DELETE falló con el código de estado:", resp.StatusCode)
+        fmt.Println("La solicitud DELETE response con el código de estado:", resp.StatusCode)
       }
 }
