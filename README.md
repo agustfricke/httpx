@@ -1,6 +1,6 @@
 # snet-client-api
 
-⚡ Lightweight and blazingly fast client API application to test your backend requests... Developed with love and Go!
+⚡ Lightweight and blazingly fast client API application to test your backend requests... Developed with Go!
 
 ### Features
 - :satellite: JWT header
