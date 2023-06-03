@@ -35,7 +35,9 @@ func Post(url string, token string, jsonData []byte) {
     }
 
     req.Header.Set("Content-Type", "application/json")
-    req.Header.Set("Authorization", "Bearer "+ token)
+    if token != "" {
+        req.Header.Set("Authorization", "Bearer "+ token)
+    }
 
     client := &http.Client{}
     resp, err := client.Do(req)
