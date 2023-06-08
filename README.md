@@ -1,5 +1,5 @@
 # snet-client-api
-
+# Currently updating and not available!
 ⚡ Lightweight and blazingly fast client API application to test your backend requests... Developed with Go!
 
 ### Features
