@@ -1,9 +1,8 @@
 # snet-client-api
-# Currently updating and not available!
-⚡ Lightweight and blazingly fast client API application to test your backend requests... Developed with Go!
+⚡ Lightweight client API application developed with Go!
 
 ### Features
-- :satellite: JWT header
+- :satellite: JWT 
 - :satellite: File support
 - :satellite: GET 
 - :satellite: POST 
@@ -11,10 +10,13 @@
 - :satellite: DELETE
 
 ### install and use in linux:
+```shell
 - git clone https://github.com/agustfricke/snet-client-api.git
 - cd snet-client-api
 - sudo mv main /usr/local/bin/sn
 - reboot shell
-- $sn
+- sn
+```
+
 
 ## Enjoy and give it a star ⭐
