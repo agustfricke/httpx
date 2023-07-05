@@ -1,4 +1,4 @@
-# snet-client-api
+# httpx
 ⚡ Lightweight client API application developed with Go!
 
 ### Features
@@ -12,15 +12,15 @@
 ### install and use in linux:
 
 ```bash
-git clone https://github.com/agustfricke/snet-client-api.git
+git clone https://github.com/agustfricke/httpx.git
 ```
 
 ```bash
-cd snet-client-api
+cd httpx
 ```
 
 ```bash
-sudo mv main /usr/local/bin/sn
+sudo mv main /usr/local/bin/httpx
 ```
 
 ```bash
@@ -28,8 +28,7 @@ source .zshrc
 ```
 
 ```bash
-sn
+httpx
 ```
-
 
 ## Enjoy and give it a star ⭐
