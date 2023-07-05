@@ -11,11 +11,19 @@
 
 ### install and use in linux:
 ```shell
-- git clone https://github.com/agustfricke/snet-client-api.git
-- cd snet-client-api
-- sudo mv main /usr/local/bin/sn
-- reboot shell
-- sn
+git clone https://github.com/agustfricke/snet-client-api.git
+```
+```shell
+cd snet-client-api
+```
+```shell
+sudo mv main /usr/local/bin/sn
+```
+```shell
+source .zshrc
+```
+```shell
+sn
 ```
 
 
