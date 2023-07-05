@@ -10,19 +10,24 @@
 - :satellite: DELETE
 
 ### install and use in linux:
+
 ```bash
 git clone https://github.com/agustfricke/snet-client-api.git
 ```
-```shell
+
+```bash
 cd snet-client-api
 ```
-```shell
+
+```bash
 sudo mv main /usr/local/bin/sn
 ```
-```shell
+
+```bash
 source .zshrc
 ```
-```shell
+
+```bash
 sn
 ```
 
