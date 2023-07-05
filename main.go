@@ -102,6 +102,8 @@ func main() {
     if(u == "y") {
       url = ""
     }
+
+    cli.Cli()
   }
 }
 
