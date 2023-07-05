@@ -1,14 +1,15 @@
 package main
 
 import (
-  "bufio"
-  "encoding/json"
-  "fmt"
-  "os"
-  "strings"
+	"bufio"
+	"encoding/json"
+	"fmt"
+	"os"
+	"strings"
 
-  "github.com/agustfricke/snet-client-api/cli"
-  "github.com/agustfricke/snet-client-api/req"
+	"github.com/agustfricke/snet-client-api/cli"
+	"github.com/agustfricke/snet-client-api/req"
+
 )
 
 func main() {
@@ -27,7 +28,7 @@ func main() {
     }
 
     if (token == "") {
-      fmt.Print("Enter your token:")
+      fmt.Print("Enter your token: ")
       fmt.Scanf("%s", &token)
       token = strings.TrimRight(token, "%")
     }
@@ -36,7 +37,6 @@ func main() {
     fmt.Print("Enter Method: POST(1) GET(2) PUT(3) DELETE(4):")
     fmt.Scanf("%v\n", &method)
 
-    // SET JSON DATA
     if method == "1" || method == "3" {
       data := make(map[string]string)
       for {
@@ -79,7 +79,7 @@ func main() {
     }
 
     var ok string
-    fmt.Print("Do you want to make another request? y/n: ")
+    fmt.Print("Do you want to make another request? <N to exit>: ")
     fmt.Scanf("%v\n", &ok)
 
     if ok == "n" {
@@ -88,7 +88,7 @@ func main() {
     }
 
     var to string
-    fmt.Print("Do you want to change the JWT token? y/n: ")
+    fmt.Print("Do you want to change the JWT token? <Y to change>: ")
     fmt.Scanf("%v\n", &to)
 
     if to == "y" {
@@ -96,7 +96,7 @@ func main() {
     }
     
     var u string
-    fmt.Print("Do you want to change the URL? y/n: ")
+    fmt.Print("Do you want to change the URL? <Y to change>:  ")
     fmt.Scanf("%v\n", &u)
 
     if(u == "y") {
