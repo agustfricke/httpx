@@ -23,25 +23,26 @@ func main() {
 
   for {
     if (url == "") {
-      fmt.Print("Enter a base URL to your session: ")
+      fmt.Print("session url -> ")
       fmt.Scanf("%v\n", &url)
     }
 
     if (token == "") {
-      fmt.Print("Enter your token: ")
+      fmt.Print("jwt token -> ")
       fmt.Scanf("%s", &token)
       token = strings.TrimRight(token, "%")
     }
 
     var method string
-    fmt.Print("Enter Method: POST(1) GET(2) PUT(3) DELETE(4):")
+    fmt.Print("POST(1) GET(2) PUT(3) DELETE(4) -> ")
     fmt.Scanf("%v\n", &method)
 
     if method == "1" || method == "3" {
       data := make(map[string]string)
+
       for {
         var key string
-        fmt.Print("Enter Key(leave empty to finish): ")
+        fmt.Print("key ->  ")
         key, _ = reader.ReadString('\n')
         key = strings.TrimSpace(key)
 
@@ -49,7 +50,7 @@ func main() {
           break
         }
         var value string
-        fmt.Printf("Enter Value for \"%s\": ", key)
+        fmt.Printf("value for {\"%s\"} -> ", key)
         value, _ = reader.ReadString('\n') 
         value = strings.TrimSpace(value)
         data[key] = value
@@ -79,16 +80,16 @@ func main() {
     }
 
     var ok string
-    fmt.Print("Do you want to make another request? <N to exit>: ")
+    fmt.Print("exit? {y to exit} -> ")
     fmt.Scanf("%v\n", &ok)
 
-    if ok == "n" {
+    if ok == "y" {
       cli.Bye()
       break
     }
 
     var to string
-    fmt.Print("Do you want to change the JWT token? <Y to change>: ")
+    fmt.Print("update jwt token? {y to update} -> ")
     fmt.Scanf("%v\n", &to)
 
     if to == "y" {
@@ -96,7 +97,7 @@ func main() {
     }
     
     var u string
-    fmt.Print("Do you want to change the URL? <Y to change>:  ")
+    fmt.Print("update url {y to update} ->  ")
     fmt.Scanf("%v\n", &u)
 
     if(u == "y") {
