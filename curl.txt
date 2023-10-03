@@ -1,0 +1,7 @@
+curl -X METHOD \
+  -H "Authorization: Bearer TU_TOKEN_JWT" \
+  -H "Content-Type: multipart/form-data" \
+  -F "json_data={'clave': 'valor'};type=application/json" \
+  -F "imagen=@ruta_de_la_imagen.jpg" \
+  URL_DEL_ENDPOINT
+
